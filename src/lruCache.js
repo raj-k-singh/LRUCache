@@ -192,7 +192,6 @@ LRUCache.cache = function(_cacheSize){
         put : put,
         remove : remove,
         clear : clear,
-        dump : _dump,
         peek : peek
     };
 };
