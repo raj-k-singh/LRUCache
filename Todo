@@ -1,0 +1,6 @@
+- Allow cache size change at runtime ( Do we really need it? )
+
+Methods remaining
+- Clear
+
+Add tests for different types of data

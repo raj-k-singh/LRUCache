@@ -1,0 +1,26 @@
+{
+  "name": "lruCache",
+  "version": "0.0.0",
+  "description": "Efficient least recently used cache.",
+  "main": "index.js",
+  "dependencies": {
+    "karma": "~0.12.24",
+    "karma-jasmine": "~0.2.3"
+  },
+  "devDependencies": {
+    "jasmine-node": "~1.14.5",
+    "node-inspector": "~0.7.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Least",
+    "recently",
+    "used",
+    "Cache",
+    "LRU"
+  ],
+  "author": "Raj K Singh",
+  "license": "MIT"
+}
