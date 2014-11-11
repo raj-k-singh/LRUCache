@@ -21,10 +21,14 @@ When the cache is at capacity and another item is added, it removes the least re
 The cache does not use any browser specific features so testing within the node runtime is enough.    
 
 * jasmine has been used for writing tests
-* jasmine-node is being used for running tests.    
+* jasmine-node has been used for running tests.    
 
-jasmine-node will have to be installed globally if one wants to use the command directly on command line.
-    npm install -g jasmine-node
+jasmine-node will have to be installed globally if one wants to use the command directly on command line.   
+```shell
+npm install -g jasmine-node
+```
 
-tests can then be run using the command - the test code is present in 'test' directory
-    jasmine-node test
+tests can then be run using th following command - the test code is present in 'test' directory        
+```shell
+jasmine-node test
+```
