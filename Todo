@@ -1,5 +1,7 @@
 - Allow cache size change at runtime ( Do we really need it? )
 
+Read the readme and fix typos.
+
 Add tests for different types of data
 
 Integrate Travis CI

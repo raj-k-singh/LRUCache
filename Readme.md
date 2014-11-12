@@ -14,7 +14,7 @@ Adds the specified key, value pair to the cache. It causes the LRU item to be di
 If the specified key is already present in the cache, then the corresponding value is overwritten and the access priority is updated for the given key.
 
 ###capacity()###
-return cache maximum capacity
+returns cache maximum capacity
 
 ###size()###
 returns cache occupancy - the total number of items currently present in the cache

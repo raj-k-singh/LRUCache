@@ -28,11 +28,11 @@ LRUCache.cache = function(_cacheSize){
 
 //-------- Begin Private and utility methods --------//
     /* 
-        Utility method for adding a new item to the doubly linked list
-        Removing items from the tail as needed if size overflows.
+        Adds a new item to the doubly linked list
+        Removes items from the tail as needed if size becomes greater than cache capacity.
     */
     _putInList = function(data){
-        // case for first element in cache
+        // first element in cache
         if(head === null){
             head = data;
             tail = data;
@@ -59,7 +59,7 @@ LRUCache.cache = function(_cacheSize){
     };    // _putInList end
 
     /*
-        Utility method to remove an item from the doubly linked list
+        Removes an item from the linked list
     */
     _removeFromList = function(data){
         if(data.left !== null){
@@ -72,13 +72,13 @@ LRUCache.cache = function(_cacheSize){
     };    // _removeFromList end
 
     /* 
-        Utility method to promote a node to the head of the linked list 
+        promotes an item to the head of the linked list 
     */
     _promoteInList = function(data){
         if(data === head){
             return;
         }    
-        if(data === tail){
+        if(data === tail){  // update tail, if specified item itself was the tail
             tail = data.left;
         }
         if(data.left !== null){
@@ -93,6 +93,10 @@ LRUCache.cache = function(_cacheSize){
         head = data;
     };    // _promoteInList end
 
+    /*
+        Dump internal state of the cache on console
+        Mainly for testing and debugging
+    */
     _dump = function(){
         var list = "| ", tmp;
         tmp = head;
@@ -117,7 +121,7 @@ LRUCache.cache = function(_cacheSize){
     };
 
     /*
-        Retrive and item from the cache. This updates the last accessed property for the item
+        Retrive an item from the cache. This updates the priority of the item, making it the most recently used one
         Returns undefined if key not present in cache.
     */
     get = function(key){
@@ -130,9 +134,8 @@ LRUCache.cache = function(_cacheSize){
     };    // _get end
 
     /*
-        Puts a new item in the cache. Making it the most recently used.
-        If the key is already present in the cache, then the value is updated
-        and the key's access priority is updated.
+        Puts a new item in the cache. If the key is already present in the cache, then the value is updated.
+        The item is also made the most recently used one.
     */
     put = function(key, value){
         var data;
