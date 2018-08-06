@@ -1,35 +1,35 @@
-#LRU Cache#
+# LRU Cache
 
-##Efficient in-memory cache with LRU policy for cleanup##
+## Efficient in-memory cache with LRU policy for cleanup
 Allows for constant time get, put and remove operations
 
-##Methods##
+## Methods
 
-###get(key)###
+### get(key)
 returns the item associated with specified key or undefined if key is not present in the cache.    
 Also updates the last accessed priority for the specified item, making it the most recently used one.
 
-###put(key, value)###
+### put(key, value)
 Adds specified key, value pair to the cache. Causes the Least recently item to be discarded if the cache is at its capacity.    
 If the specified key is already present in cache, then the corresponding value is updated(overwritten) and the access priority is updated for the given key, making it the most recently used item.
 
-###capacity()###
+### capacity()
 returns cache maximum capacity
 
-###size()###
+### size()
 returns cache occupancy - the total number of items currently present in the cache
 
-###remove(key)###
+### remove(key)
 Removes specified item from the cache, reducing occupancy by 1. Doesnt do anything if the key specified is not present in the cache
 
-###clear()###
+### clear()
 Removes all elements from the cache
 
-###peek(key)###
+### peek(key)
 behaves the same way as get(key), except that it doesnt affect the access priority of the item i.e. one just peeks at the item without updating the cache cleanup priorities.
 Utility method (mostly for testing)
 
-##Design##
+## Design
 The cache has been implemented using a combination of a hashmap/dictionary (for efficient key-value lookups, Javascript - already solves this problem for us through its objects) and a doubly linked list (for easy management of the priority queue of items by the latest access time)
 
     (head - most recently used) v1 <==> v2 <==> v3 <==> v4 <==> v5 (tail - least recently used)
@@ -38,7 +38,7 @@ The cache has been implemented using a combination of a hashmap/dictionary (for 
 
 When the cache is at capacity and another item is added, it removes the least recently used one.
 
-##Testing##
+## Testing
 The cache does not use any browser specific features so testing within the node runtime is enough.    
 
 * jasmine has been used for writing tests
@@ -54,7 +54,7 @@ tests can then be run using th following command - the test code is present in '
 jasmine-node test
 ```
 
-##Example##
+## Example
 ```Javascript
     var cache = LRUCache.cache(3);  // Create and get a new cache with a capacity of 3 items
     cache.capacity();               // returns 3
